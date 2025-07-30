@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "hl7-validator"
+version = "0.1.0"
+description = ""
+authors = ["leshorne <javaman7177@gmail.com>"]
+readme = "README.md"
+packages = [{include = "hl7_validator"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
