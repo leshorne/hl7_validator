@@ -149,37 +149,3 @@ class HL7MessageToDict:
                     parsed_data[raw_segment_name].append(segment_dict)
 
         return parsed_data
-
-
-# --- Example Usage ---
-
-msh = "MSH|^~\\&|MESA_RPT_MGR|EAST_RADIOLOGY|iFW|XYZ|||ORU^R01|MESA3b|P|2.4||||||||"
-pid = "PID|||CR3^^^ADT1||CRTHREE^PAUL|||M|||2222 HOME STREET^^ANN ARBOR^MI^^USA||555-555-2004~444-333-222|||M"
-pv1 = "PV1||1|CE||||12345^SMITH^BARON^H|||||||||||"
-obr = "OBR|||||||20010501141500.0000||||||||||||||||||F||||||||||||||||||"
-obx1 = "OBX|1|HD|SR Instance UID||1.113654.1.2001.30.2.1||||||F||||||"
-obx2 = "OBX|2|TX|SR Text||Radiology Report History Cough Findings PA evaluation of the chest demonstrates the lungs to be expanded and clear.  Conclusions Normal PA chest x-ray.||||||F||||||"
-cti = "CTI|study1|^1|^10_EP1"
-
-hl7_message_string = f'{msh}\n{pid}\n{pv1}\n{obr}\n{obx1}\n{obx2}\n{cti}'
-
-"""
-msh = "MSH|^~\\&|GHH_ADT||||20080115153000||ADT^A01^ADT_A01|0123456789|P|2.5||||AL"
-evn = "EVN||20080115153000||AAA|AAA|20080114003000"
-pid = "PID|1||566-554-3423^^^GHH^MR||EVERYMAN^ADAM^A|||M|||2222 HOME STREET^^ANN ARBOR^MI^^USA||555-555-2004~444-333-222|||M"
-nk1 = "NK1|1|NUCLEAR^NELDA^W|SPO|2222 HOME STREET^^ANN ARBOR^MI^^USA"
-pv1 = "PV1|1|I|GHH PATIENT WARD|U||||^SENDER^SAM^^MD|^PUMP^PATRICK^P|CAR||||2|A0|||||||||||||||||||||||||||||2008"
-in1 = "IN1|1|HCID-GL^GLOBAL|HCID-23432|HC PAYOR, INC.|5555 INSURERS CIRCLE^^ANN ARBOR^MI^99999^USA||||||||||||||||||||||||||||||||||||||||||||444-33-3333"
-hl7_message_string = f'{msh}\n{evn}\n{pid}\n{nk1}\n{pv1}\n{in1}'
-"""
-
-
-
-# Parse the HL7 message
-parsed_message = HL7MessageToDict(hl7_message_string).parse_hl7_message()
-
-# Print the result using a more readable format
-import json
-
-print(json.dumps(parsed_message, indent=2))
-print(parsed_message.keys())

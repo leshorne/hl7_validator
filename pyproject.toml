@@ -8,6 +8,10 @@ packages = [{include = "hl7_validator"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+hl7apy = "^1.3.5"
+hl7 = "^0.4.5"
+pydantic = "^2.11.7"
+fhir-resources = "^8.1.0"
 
 
 [build-system]
